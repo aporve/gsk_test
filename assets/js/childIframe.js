@@ -376,6 +376,14 @@ window.addEventListener('message', function (eventData) {
         }), '*');
     }
 
+    if (parsedEventData.event_code === "legal-copyright") {
+        // console.log('legal-copyright Data in child Iframe~~~>>', parsedEventData.data)
+        parent.postMessage(JSON.stringify({
+            event_code: 'legal-copyright',
+            data: parsedEventData.data
+        }), '*');
+    }
+
     if (parsedEventData.event_code === "get-data-from-localstorage") {
         // console.log('get-data-from-localstorage Data in child Iframe~~~>>', parsedEventData.data)
         parent.postMessage(JSON.stringify({

@@ -427,5 +427,11 @@ window.addEventListener('message', function (eventData) {
         ToApp("get-data-on-refresh", JSON.parse(data));
     }
 
-
+    if (parsedEventData.event_code === "legal-copyright" && parsedEventData.data) {
+        let eventName = parsedEventData.event_code;
+        let data = parsedEventData.data;
+        console.log("eventName---", eventName);
+        console.log('Event Data---', data);
+        ToApp("legal-copyright", data);
+    }
 });
